@@ -9,9 +9,9 @@
 
     <template>
       <p class="text-center text-gray-600 text-3xl">This is some content in the root component.</p>
+      <ComputedVue />
       <ReactiveVue />
       <MyRefConcept />
-      <ComputedVue />
       <WatchConcept />
       <OnMountVue />
     </template>
