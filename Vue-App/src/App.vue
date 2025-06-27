@@ -1,36 +1,32 @@
-    <!-- App.vue
-    <script setup>
-    import ComputedVue from './components/ComputedVue.vue';
-    import MyRefConcept from './components/MyRefConcept.vue';
-    import OnMountVue from './components/onMountVue.vue';
-    import ReactiveVue from './components/ReactiveVue.vue'
-import SideBarLayout from './components/SideBarLayout.vue';
-    import WatchConcept from './components/WatchConcept.vue';
-</script>
-
-    <template>
-      <p class="text-center text-gray-600 text-3xl">This is some content in the root component.</p>
-      <OnMountVue />
-      <ComputedVue />
-      <ReactiveVue />
-      <MyRefConcept />
-      <WatchConcept />
-      <SideBarLayout />
-    </template> -->
-
-    <!-- src/App.vue -->
 <template>
-  <div class="flex h-screen">
-    <!-- Sidebar -->
-    <Sidebar class="w-[30%]" />
+  <div class="flex flex-col md:flex-row h-screen">
 
-    <!-- Router View (Main Content) -->
-    <main class="w-[70%] h-screen overflow-y-auto p-4 bg-white">
-      <router-view />
-    </main>
+    <div class="flex h-screen">
+      <SideBar class="h-full" />
+
+      <main class="w-full overflow-y-auto p-6 bg-white dark:bg-gray-900 text-black dark:text-white">
+        <div class="flex justify-end">
+          <button @click="isDark = !isDark"
+            class="mb-4 px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+            {{ isDark ? '☀️ Light Mode' : '🌙 Dark Mode' }}
+          </button>
+        </div>
+        <router-view />
+      </main>
+    </div>
   </div>
 </template>
 
 <script setup>
-import Sidebar from './components/Sidebar.vue'
+import { ref, watchEffect } from 'vue'
+import SideBar from './components/SideBar.vue'
+const isDark = ref(false)
+
+watchEffect(() => {
+  if (isDark.value) {
+    document.documentElement.classList.add('dark')
+  } else {
+    document.documentElement.classList.remove('dark')
+  }
+})
 </script>
