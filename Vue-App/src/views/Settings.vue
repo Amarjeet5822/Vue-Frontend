@@ -1,7 +1,12 @@
 <!-- src/views/Settings.vue -->
 <template>
   <div>
-    <h1 class="text-2xl font-bold mb-4">⚙️ Settings</h1>
-    <p class="text-gray-600 mb-4" v-for="n in 25" :key="n">Settings line {{ n }}. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptatum laudantium vitae totam officiis iure nisi qui enim fugiat inventore!</p>
+    <h1 class="text-2xl font-bold">⚙️ Settings</h1>
+    <nav class="flex gap-4 mb-4">
+      <router-link to="settings/settings">Settings</router-link>
+      <router-link to="settings/reactive-vue">Reactive Vue</router-link>
+      <router-link to="settings/watch-concept">Watch Concept</router-link>
+    </nav>
+    <router-view />
   </div>
 </template>
