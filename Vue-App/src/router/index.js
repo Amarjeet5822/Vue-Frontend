@@ -10,29 +10,29 @@ const routes = [
     component: Home,
     children: [
       { path: '', redirect: 'product' },
-      { path: 'product', component: () => import('../components/Home/Product.vue') },
-      { path: 'single-product', component: () => import('../components/Home/SingleProduct.vue') },
-      { path: 'user', component: () => import('../components/Home/User.vue') },
+      { path: 'product', name: 'Product', component: () => import('../components/Home/Product.vue') },
+      { path: 'single-product', name: 'SingleProduct', component: () => import('../components/Home/SingleProduct.vue') },
+      { path: 'user', name: 'UserHome', component: () => import('../components/Home/User.vue') },
     ]
   },
-  { 
-    path: "/dashboard", 
+  {
+    path: "/dashboard",
     component: Dashboard,
     children: [
       { path: '', redirect: 'home' },
-      { path: 'home', component: () => import('../components/Dashboard/Home.vue') },
-      { path: 'settings', component: () => import('../components/Dashboard/Settings.vue') },
-      { path: 'user', component: () => import('../components/Dashboard/User.vue') },
+      { path: 'home', name: 'DashboardHome', component: () => import('../components/Dashboard/Home.vue') },
+      { path: 'settings', name: 'DashboardSettings', component: () => import('../components/Dashboard/Settings.vue') },
+      { path: 'user', name: 'DashboardUser', component: () => import('../components/Dashboard/User.vue') },
     ]
   },
-  { 
-    path: "/settings",  
-    component: Settings ,
+  {
+    path: "/settings",
+    component: Settings,
     children: [
       { path: '', redirect: 'settings' },
-      { path: 'settings', component: () => import('../components/Settings/MyRefConcept.vue') },
-      { path: 'reactive-vue', component: () => import('../components/Settings/ReactiveVue.vue') },
-      { path: 'watch-concept', component: () => import('../components/Settings/WatchConcept.vue') },
+      { path: 'settings', name: 'MyRefConcept', component: () => import('../components/Settings/MyRefConcept.vue') },
+      { path: 'reactive-vue', name: 'ReactiveVue', component: () => import('../components/Settings/ReactiveVue.vue') },
+      { path: 'watch-concept', name: 'WatchConcept', component: () => import('../components/Settings/WatchConcept.vue') },
     ]
   },
 ];
